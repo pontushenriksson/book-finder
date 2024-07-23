@@ -1,12 +1,26 @@
 # Personal book finder
 
-A project that will store data about the books I've read and the order of the books on the shelves to help me find them.
+A project designed to store data about the books I've read and manage their order on physical shelves, helping me find them easily.
 
-## How to structure JSON data.
+## JSON Data Structure
 
-- Book info > name, description, ISBN, if it's been read or not, how broken the book is from 1-100%, description, and width of each book.
-- Shelf > width, amount of books (based on the width of the books. Move other books down to the next shelf if it doesn't fit).
-- Book order > (calculate from data) book rating etc.
+### Book Information
+
+- `name`: Title of the book
+- `description`: Brief summary of the book
+- `ISBN`: International Standard Book Number
+- `status`: Read/Reading/Unread
+- `reading number`: Times the book has been read
+- `condition`: Condition of the book (1-100%)
+- `width`: Width of the book (in centimeters)
+- `rating`: Rating from 1-10 (in increments of 0.25)
+
+### Shelf Information
+- `width`: Total width of the shelf (in centimeters)
+- `books`: List of book arranged based on their width
+
+### Book Order
+- Calculated based on data, e.g., rating, author, genre, or custom user-defined order.
 
 ## Features
 
