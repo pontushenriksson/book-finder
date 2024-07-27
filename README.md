@@ -2,6 +2,11 @@
 
 A project designed to store data about the books I've read and manage their order on physical shelves, helping me find them easily.
 
+## Bugs and TODO
+
+- The downloaded JSON doesn't work properly.
+- A book gets the black color instead of the gradient for some reason.
+
 ## Data needed
 
 ### Book information
