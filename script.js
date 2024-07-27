@@ -71,12 +71,14 @@ function setBookSpineColorAndSize(isbn, element) {
 
   getBookData(isbn, bookData => {
     if (bookData && bookData.number_of_pages) {
-      const thicknessInCm = bookData.number_of_pages / 100; // Example calculation: 1 cm per 100 pages
+      const thicknessInCm = bookData.number_of_pages / 100; // Calculation - 1 cm per 100 pages
       const thicknessInMm = thicknessInCm * 10;
       element.style.width = `${thicknessInMm}px`;
+      element.setAttribute('data-thickness', thicknessInCm); // Store thickness as attribute
     } else {
       // Default thickness if no data available
       element.style.width = `25px`;
+      element.setAttribute('data-thickness', 2.5); // Default thickness in cm
     }
   });
 }
@@ -116,12 +118,17 @@ function updateBookOrder() {
   const shelves = document.querySelectorAll('.shelf');
   const order = [];
 
-  shelves.forEach(shelf => {
+  shelves.forEach((shelf, shelfIndex) => {
     const books = shelf.querySelectorAll('.book');
+    const shelfOrder = [];
+
     books.forEach(book => {
       const isbn = book.getAttribute('data-isbn');
-      order.push({ isbn });
+      const thickness = parseFloat(book.getAttribute('data-thickness'));
+      shelfOrder.push({ isbn, thickness });
     });
+
+    order.push({ shelfIndex, books: shelfOrder });
   });
 
   localStorage.setItem('bookOrder', JSON.stringify(order));
@@ -157,21 +164,43 @@ function uploadBookOrder(event) {
 
 // Render the books based on the uploaded order
 function renderBookOrder(order) {
-  const shelves = document.querySelectorAll('.shelf');
+  const shelfContainer = document.getElementById('shelf-container');
+  shelfContainer.innerHTML = ''; // Clear current shelves
 
-  shelves.forEach(shelf => {
-    const bookContainer = shelf.querySelector('.book-container');
-    bookContainer.innerHTML = ''; // Clear current books
+  // Populate shelves with books from the order
+  order.forEach(shelfData => {
+    const shelfIndex = shelfData.shelfIndex;
+    const books = shelfData.books;
 
-    order.forEach(bookData => {
+    // Create a new shelf element
+    const shelf = document.createElement('div');
+    shelf.className = 'shelf';
+
+    // Create a new book container element
+    const bookContainer = document.createElement('div');
+    bookContainer.className = 'book-container';
+
+    books.forEach(bookData => {
       const book = document.createElement('div');
       book.className = 'book';
       book.setAttribute('data-isbn', bookData.isbn);
+      book.setAttribute('data-thickness', bookData.thickness);
 
       const isbn = bookData.isbn;
-      setBookSpineColorAndSize(isbn, book);
+      const thickness = parseFloat(bookData.thickness); // Ensure thickness is a number
+      setBookSpineColorAndSize(isbn, thickness, book);
 
       bookContainer.appendChild(book);
+    });
+
+    shelf.appendChild(bookContainer);
+    shelfContainer.appendChild(shelf);
+
+    // Re-initialize SortableJS for the new book container
+    Sortable.create(bookContainer, {
+      animation: 150,
+      group: 'shared', // Allow dragging between shelves
+      onEnd: updateBookOrder,
     });
   });
 }
