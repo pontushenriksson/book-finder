@@ -1,6 +1,23 @@
+:root {
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: Arial, sans-serif;
 }
+
+.container {
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+}
+
+/* --- */
 
 #shelf-container {
   display: flex;
