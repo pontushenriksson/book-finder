@@ -9,30 +9,68 @@
   <body>
     <div class="container">
       <header>
-        <h1>My shelf</h1>
+        <h1>Personal book tracker</h1>
         <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex officiis
-          dolores, dicta quae at modi in necessitatibus numquam dolor eveniet
-          consequatur nihil similique natus! Exercitationem iusto est cum atque
-          obcaecati.
+          This website helps you keep track of the books you've read and
+          organize them according to my styleguide. You can also download your
+          bookshelf as a JSON file.
         </p>
+
+        <a href="my-bookshelf.html">See my bookshelf instead</a>
       </header>
 
       <div id="shelf-container">
-        <!-- Shelves will be dynamically added here -->
-      </div>
-
-      <!-- Book detail modal -->
-      <div id="book-modal" class="modal">
-        <div class="modal-content">
-          <span class="close-button">&times;</span>
-          <h2 id="book-title"></h2>
-          <p id="book-category"></p>
-          <p id="book-description"></p>
+        <div class="shelf">
+          <div class="book-container">
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+          </div>
+        </div>
+        <div class="shelf">
+          <div class="book-container">
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+          </div>
+        </div>
+        <div class="shelf">
+          <div class="book-container">
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+          </div>
         </div>
       </div>
 
-      <button id="download-json">Download JSON</button>
+      <button id="download-json">Download updated JSON</button>
     </div>
 
     <script src="script.js"></script>
