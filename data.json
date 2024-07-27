@@ -1,0 +1,20 @@
+{
+  "books": [
+    {
+      "name": "Book Title",
+      "description": "Brief summary of the book",
+      "ISBN": "978-3-16-148410-0",
+      "status": "Read",
+      "reading_number": 2,
+      "condition": 85,
+      "width": 2.5,
+      "rating": 8.5
+    }
+  ],
+  "shelves": [
+    {
+      "width": 100,
+      "books": ["978-3-16-148410-0", "978-0-12-345678-9"]
+    }
+  ]
+}

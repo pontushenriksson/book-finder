@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Book Finder</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="shelf-container">
+      <!-- Shelves will be dynamically added here -->
+    </div>
+
+    <!-- Book detail modal -->
+    <div id="book-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2 id="book-title"></h2>
+        <p id="book-category"></p>
+        <p id="book-description"></p>
+      </div>
+    </div>
+
+    <button id="download-json">Download JSON</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>
