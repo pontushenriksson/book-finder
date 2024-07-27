@@ -2,9 +2,9 @@
 
 A project designed to store data about the books I've read and manage their order on physical shelves, helping me find them easily.
 
-## JSON Data Structure
+## Data needed
 
-### Book Information
+### Book information
 
 - `name`: Title of the book
 - `description`: Brief summary of the book
@@ -15,13 +15,19 @@ A project designed to store data about the books I've read and manage their orde
 - `width`: Width of the book (in centimeters)
 - `rating`: Rating from 1-10 (in increments of 0.25)
 
-### Shelf Information
+### Shelf information
+
 - `width`: Total width of the shelf (in centimeters)
 - `books`: List of book arranged based on their width
 
-### Book Order
+### Book order
+
 - Calculated based on data, e.g., rating, author, genre, or custom user-defined order.
 
 ## Features
 
-- A website that displays a shelf with all the backs of the books like in real life to easily find the ones I want in real life. I should also be able to drag-and-drop on the website to update the JSON. Also if you hover over a back on the shelf it should get a bit bigger and then if you right-click it should display the title and category and if you left-click it should change to a page about that book.
+- A website that displays a shelf with all the backs of the books I own to easily find the ones I want in real life.
+- Drag-and-drop on the website to update the JSON.
+- Hover over a back on the shelf it should get a bit bigger.
+- Left-click the back of the book to enter a page about that book.
+- Right-click the back of the book to display the title and category.

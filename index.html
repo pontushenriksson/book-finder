@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Book Finder</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Personal book tracker</h1>
+        <p>
+          This website helps you keep track of the books you've read and
+          organize them according to my styleguide. You can also download your
+          bookshelf as a JSON file.
+        </p>
+        <a href="my-bookshelf.html">See my bookshelf instead</a>
+      </header>
+
+      <div id="shelf-container">
+        <div class="shelf">
+          <div class="book-container">
+            <div class="book" data-isbn="" data-thickness=""></div>
+            <div class="book" data-isbn="" data-thickness=""></div>
+            <div class="book" data-isbn="" data-thickness=""></div>
+          </div>
+        </div>
+        <div class="shelf">
+          <div class="book-container">
+            <div class="book" data-isbn="" data-thickness=""></div>
+            <div class="book" data-isbn="" data-thickness=""></div>
+            <div class="book" data-isbn="" data-thickness=""></div>
+          </div>
+        </div>
+      </div>
+
+      <button id="download-json">Download updated JSON</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vibrant.js/1.0.0/Vibrant.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
