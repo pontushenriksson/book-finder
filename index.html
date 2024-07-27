@@ -13,59 +13,26 @@
         <p>
           This website helps you keep track of the books you've read and
           organize them according to my styleguide. You can also download your
-          bookshelf as a JSON file.
+          bookshelf as a JSON file. Please note that this can't retrieve the
+          spine images so it takes the most used color from the cover image and
+          uses that instead.
         </p>
-
         <a href="my-bookshelf.html">See my bookshelf instead</a>
       </header>
 
       <div id="shelf-container">
         <div class="shelf">
           <div class="book-container">
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
+            <div class="book" data-isbn="9783161484100"></div>
+            <div class="book" data-isbn="9780439064873"></div>
+            <div class="book" data-isbn="9780747532743"></div>
           </div>
         </div>
         <div class="shelf">
           <div class="book-container">
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-          </div>
-        </div>
-        <div class="shelf">
-          <div class="book-container">
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
+            <div class="book" data-isbn="9780307887894"></div>
+            <div class="book" data-isbn="9780307887894"></div>
+            <div class="book" data-isbn="9780307887894"></div>
           </div>
         </div>
       </div>
@@ -73,6 +40,7 @@
       <button id="download-json">Download updated JSON</button>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vibrant.js/1.0.0/Vibrant.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
