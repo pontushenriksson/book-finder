@@ -1,11 +1,16 @@
 // Function to fetch the book cover image
 function getBookCover(isbn, callback) {
+  if (!isbn) {
+    callback(null); // No ISBN provided
+    return;
+  }
+
   const url = `https://covers.openlibrary.org/b/isbn/${isbn}-L.jpg`;
   const img = new Image();
   img.crossOrigin = 'Anonymous';
   img.src = url;
   img.onload = () => callback(img);
-  img.onerror = () => console.error(`Failed to load image for ISBN ${isbn}`);
+  img.onerror = () => callback(null); // Image failed to load
 }
 
 // Function to find the most frequently used color in an image
@@ -36,11 +41,19 @@ function getMostFrequentColor(image) {
   return maxColor;
 }
 
-// Function to set the spine color for each book
-function setBookSpineColor(isbn, element) {
+// Function to set the spine color and size for each book
+function setBookSpineColorAndSize(isbn, thickness, element) {
   getBookCover(isbn, img => {
-    const dominantColor = getMostFrequentColor(img);
-    element.style.backgroundColor = dominantColor;
+    if (img) {
+      const dominantColor = getMostFrequentColor(img);
+      element.style.backgroundColor = dominantColor;
+    } else {
+      element.style.background = 'linear-gradient(#e0ab81, #493026)';
+    }
+
+    // Convert thickness from cm to mm and set as pixel width
+    const thicknessInMm = thickness * 10;
+    element.style.width = `${thicknessInMm}px`;
   });
 }
 
@@ -50,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   books.forEach(book => {
     const isbn = book.getAttribute('data-isbn');
-    setBookSpineColor(isbn, book);
+    const thickness = parseFloat(book.getAttribute('data-thickness'));
+    setBookSpineColorAndSize(isbn, thickness, book);
   });
 });
