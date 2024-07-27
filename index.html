@@ -16,21 +16,26 @@
           bookshelf as a JSON file.
         </p>
         <a href="my-bookshelf.html">See my bookshelf instead</a>
+
+        <div class="upload-bookshelf">
+          Upload your JSON bookshelf file:
+          <input type="file" id="upload-json" accept=".json" />
+        </div>
       </header>
 
       <div id="shelf-container">
         <div class="shelf">
           <div class="book-container">
-            <div class="book" data-isbn="" data-thickness=""></div>
-            <div class="book" data-isbn="" data-thickness=""></div>
-            <div class="book" data-isbn="" data-thickness=""></div>
+            <div class="book" data-isbn="9783161484100"></div>
+            <div class="book" data-isbn="978-1-5011-2174-6"></div>
+            <div class="book" data-isbn="9780747532743"></div>
           </div>
         </div>
         <div class="shelf">
           <div class="book-container">
-            <div class="book" data-isbn="" data-thickness=""></div>
-            <div class="book" data-isbn="" data-thickness=""></div>
-            <div class="book" data-isbn="" data-thickness=""></div>
+            <div class="book" data-isbn="9783161484100"></div>
+            <div class="book" data-isbn="invalidisbn"></div>
+            <div class="book" data-isbn="9780747532743"></div>
           </div>
         </div>
       </div>
@@ -39,6 +44,7 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vibrant.js/1.0.0/Vibrant.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
