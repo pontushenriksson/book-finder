@@ -9,7 +9,6 @@ A project designed to store data about the books I've read and manage their orde
 - Books get duplicated when uploading the JSON.
 - Add more JSON data to the website.
 - Optimize website to not refetch all ISBNs.
-- Add more .book's from the JSON file.
 - Implement a way to let the different shelves be different widths.
 - Updated all documentation and information.
 
