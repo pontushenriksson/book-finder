@@ -5,12 +5,11 @@ A project designed to store data about the books I've read and manage their orde
 ## Bugs and TODO
 
 - The downloaded JSON doesn't work properly.
-- A book gets the black color instead of the linear-gradient for some reason.
+- A book gets the black color instead of the linear gradient for some reason.
 - Books get duplicated when uploading the JSON.
 - Add more JSON data to the website.
-- Optimize website to not refetch all ISBNs.
-- Add more .book's from the JSON file.
-- Implement a way to let the different shelves be different widths.
+- Optimize the website to not re-fetch all ISBNs.
+- Implement a way to let the different shelves have different widths.
 - Updated all documentation and information.
 
 ## Fun features
@@ -22,7 +21,8 @@ A project designed to store data about the books I've read and manage their orde
 - Let users add books by a search bar or settings page.
 - Connect this to an LED so an LED below the book lights up when you click a button on the website.
 - Create a tutorial.
-- Store last changes in localstorage for redundancy.
+- Store the last changes in local storage for redundancy.
+- Let users pick in what orientation they want the books. Should it lay down? Should it have the cover to the front etc?
 
 ## Data needed (Might need some refining)
 
@@ -40,11 +40,11 @@ A project designed to store data about the books I've read and manage their orde
 ### Shelf information
 
 - `width`: Total width of the shelf (in centimeters)
-- `books`: List of book arranged based on their width
+- `books`: List of books arranged based on their width
 
 ### Book order
 
-- Calculated based on data like rating, reading number or custom user-defined order.
+- Calculated based on data like rating, reading number, or custom user-defined order.
 
 ## Features
 

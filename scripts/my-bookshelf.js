@@ -85,88 +85,13 @@ function setBookSpineColorAndSize(isbn, element) {
 
 // Initialize the bookshelf
 document.addEventListener('DOMContentLoaded', () => {
-  const books = document.querySelectorAll('.book');
-
-  books.forEach(book => {
-    const isbn = book.getAttribute('data-isbn');
-    setBookSpineColorAndSize(isbn, book);
-  });
-
-  // Initialize SortableJS for each book container
-  const bookContainers = document.querySelectorAll('.book-container');
-  bookContainers.forEach(container => {
-    Sortable.create(container, {
-      animation: 150,
-      group: 'shared', // Allow dragging between shelves
-      onEnd: updateBookOrder,
-    });
-  });
-
-  // Event listener for downloading JSON
-  document
-    .getElementById('download-json')
-    .addEventListener('click', downloadBookOrder);
-
-  // Event listener for uploading JSON
-  document
-    .getElementById('upload-json')
-    .addEventListener('change', uploadBookOrder);
+  fetch('data/bookshelf.json')
+    .then(response => response.json())
+    .then(data => {
+      renderBookOrder(data);
+    })
+    .catch(error => console.error('Error loading bookshelf data:', error));
 });
-
-// Update the book order based on the current DOM
-function updateBookOrder() {
-  const shelves = document.querySelectorAll('.shelf');
-  const order = {
-    shelves: [],
-  };
-
-  shelves.forEach(shelf => {
-    const books = shelf.querySelectorAll('.book');
-    const shelfBooks = [];
-
-    books.forEach(book => {
-      const isbn = book.getAttribute('data-isbn');
-      shelfBooks.push(isbn);
-    });
-
-    order.shelves.push({
-      width: parseFloat(shelf.getAttribute('data-width')),
-      books: shelfBooks,
-    });
-  });
-
-  localStorage.setItem('bookOrder', JSON.stringify(order));
-}
-
-// Download the current book order as a JSON file
-function downloadBookOrder() {
-  const order = JSON.parse(
-    localStorage.getItem('bookOrder') || '{"shelves": []}'
-  );
-  const blob = new Blob([JSON.stringify(order, null, 2)], {
-    type: 'application/json',
-  });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'bookshelf.json';
-  a.click();
-  URL.revokeObjectURL(url);
-}
-
-// Upload the book order from a JSON file
-function uploadBookOrder(event) {
-  const file = event.target.files[0];
-  const reader = new FileReader();
-
-  reader.onload = function (e) {
-    const order = JSON.parse(e.target.result);
-    localStorage.setItem('bookOrder', JSON.stringify(order));
-    renderBookOrder(order);
-  };
-
-  reader.readAsText(file);
-}
 
 // Render the books based on the uploaded order
 function renderBookOrder(order) {
@@ -202,4 +127,29 @@ function renderBookOrder(order) {
       onEnd: updateBookOrder,
     });
   });
+}
+
+// Update the book order based on the current DOM
+function updateBookOrder() {
+  const shelves = document.querySelectorAll('.shelf');
+  const order = {
+    shelves: [],
+  };
+
+  shelves.forEach(shelf => {
+    const books = shelf.querySelectorAll('.book');
+    const shelfBooks = [];
+
+    books.forEach(book => {
+      const isbn = book.getAttribute('data-isbn');
+      shelfBooks.push(isbn);
+    });
+
+    order.shelves.push({
+      width: parseFloat(shelf.getAttribute('data-width')),
+      books: shelfBooks,
+    });
+  });
+
+  localStorage.setItem('bookOrder', JSON.stringify(order));
 }

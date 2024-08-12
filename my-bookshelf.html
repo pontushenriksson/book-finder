@@ -1,1 +1,32 @@
-READ PERSONAL DATA FROM bookshelf.json
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Bookshelf | Pontus Henriksson - 2024</title>
+    <meta
+      name="description"
+      content="A project designed to store data about the books I've read and manage their order on physical shelves, helping me find them easily and allowing you to do the same."
+    />
+    <meta name="author" content="Pontus Henriksson" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>My Bookshelf</h1>
+        <p>This page displays your bookshelf loaded from a JSON file.</p>
+        <a href="index.html">Back to main tracker</a>
+      </header>
+
+      <div id="shelf-container">
+        <!-- Shelves will be rendered here dynamically -->
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vibrant.js/1.0.0/Vibrant.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script src="scripts/my-bookshelf.js"></script>
+  </body>
+</html>
